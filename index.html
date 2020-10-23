@@ -10,10 +10,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!--  <link rel="stylesheet" href="reviews.css"> 
        <script src="reviews.js"></script>  --> 
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
         <script src="https://use.fontawesome.com/031e3862f6.js"></script>
 
         <style>
+            body{
+                background-color: #F1F5F8;
+            }
+            #container{
+                padding-top: 50px;
+                width:80vw;
+                margin: auto;
+                text-align: center;
+            }
+            #container h1{
+                color:#102A42;
+                letter-spacing: 3px;
+                font-family: 'Roboto', sans-serif;
+                padding: 0;
+                margin: 0;
+                font-size: 50px;
+
+            }
+            hr{
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                width:10%;
+                border: 2px solid #49A6E9;
+            }
+            #grid_container{
+                display: grid;
+                padding: 20px;
+                padding-top: 80px;
+                grid-template-columns: 25% 25% 25% 25%;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+            }
+            .profile{
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 2px 2px 8px #000000;
+                text-align: center;
+                background-color: white;
+            }
+            .image{
+                border-radius: 50%;
+                object-fit: cover;
+                width:70%;
+                height: auto;
+            }
+            .name{
+                color:#617D98;
+                letter-spacing: 3px;
+                font-size: 20px;
+            }
+
+            .profileLink{
+                background-color: #49A6E9;
+                text-decoration: none;
+                padding: 10px;
+                color:white;
+                border-radius: 10px;
+              
+            }
+            #pagination{
+                display: flex;
+                justify-content: center;
+            }
+            .btns{
+                background-color: #8BCBF9;
+                color:black;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 5px;
+                border:none;
+                cursor: pointer;
+            }
+            .labelBtn{
+                letter-spacing: 2px;
+                border: none;
+                background-color: #F1F5F8;
+                font-family: 'Roboto', sans-serif;
+                cursor: pointer;
+                
+            }
+
+
 
 
         </style>
@@ -24,6 +107,44 @@
 
 
     <body>
+        <div id="container">
+            <h1>Pagination</h1>
+            <hr>
+
+            <div id="grid_container">
+                <div class="profile">
+                   <img class="image" src="https://avatars1.githubusercontent.com/u/31404082?v=4">
+                    <p class="name">Dereek</p>
+                    <a href="" class="profileLink">VIEW PROFILE</a>
+
+
+                </div>
+
+                <div class="profile">hello</div>
+
+                <div class="profile">hello</div>
+
+                <div class="profile">hello</div>
+
+            </div>
+
+            <div id="pagination">
+                
+                <button id="previous" class="labelBtn">Prev</button>
+                <button class="btns">1</button>
+                <button class="btns">2</button>
+                <button class="btns">3</button>
+                <button class="btns">4</button>
+                <button class="btns">5</button>
+                <button id="next" class="labelBtn">Next</button>
+
+
+
+            </div>
+
+
+
+        </div>
         
 
 
