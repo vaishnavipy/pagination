@@ -48,8 +48,10 @@ hr{
 }
 .name{
     color:#617D98;
-    letter-spacing: 3px;
-    font-size: 20px;
+    
+    font-size: 1.5vw;
+    
+   
 }
 
 .profileLink{
@@ -58,6 +60,7 @@ hr{
     padding: 10px;
     color:white;
     border-radius: 10px;
+    font-size: 1vw;
   
 }
 #pagination{
@@ -86,5 +89,54 @@ hr{
 .active{
     background-color: #063251;
     color:white;
+    
+}
+
+@media only screen and (max-width:1200px){
+
+    #grid_container{
+     
+    grid-template-columns: 35% 35% 35% ;
+    }
+    .name{
+        font-size: 2vw;
+    }
+    .profileLink{
+        font-size: 1vw;
+    }
+
+}
+
+
+
+
+@media only screen and (max-width:800px){
+
+    #grid_container{
+     
+    grid-template-columns: 50% 50% ;
+    }
+    .name{
+        font-size: 3vw;
+    }
+    .profileLink{
+        font-size: 2vw;
+    }
+
+}
+
+@media only screen and (max-width:700px){
+
+    #grid_container{
+     
+    grid-template-columns: 90% ;
+    }
+    .profileLink{
+        font-size: 3vw;
+    }
+    .name{
+        font-size: 4vw;
+    }
+
 }
 
