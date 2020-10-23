@@ -22,6 +22,7 @@
                 width:80vw;
                 margin: auto;
                 text-align: center;
+               
             }
             #container h1{
                 color:#102A42;
@@ -41,11 +42,12 @@
             }
             #grid_container{
                 display: grid;
-                padding: 20px;
+               
                 padding-top: 80px;
-                grid-template-columns: 25% 25% 25% 25%;
-                grid-column-gap: 20px;
-                grid-row-gap: 20px;
+                grid-template-columns: 22% 22% 22% 22%;
+                grid-column-gap: 40px;
+                grid-row-gap: 40px;
+                justify-content: center;
             }
             .profile{
                 padding: 30px;
@@ -75,6 +77,7 @@
               
             }
             #pagination{
+                margin-top: 40px;
                 display: flex;
                 justify-content: center;
             }
@@ -95,6 +98,10 @@
                 cursor: pointer;
                 
             }
+            .active{
+                background-color: #063251;
+                color:white;
+            }
 
 
 
@@ -112,14 +119,12 @@
             <hr>
 
             <div id="grid_container">
-                <div class="profile">
+             <!--   <div class="profile">
                    <img class="image" src="https://avatars1.githubusercontent.com/u/31404082?v=4">
                     <p class="name">Dereek</p>
                     <a href="" class="profileLink">VIEW PROFILE</a>
-
-
                 </div>
-
+                -->
                 <div class="profile">hello</div>
 
                 <div class="profile">hello</div>
@@ -130,13 +135,13 @@
 
             <div id="pagination">
                 
-                <button id="previous" class="labelBtn">Prev</button>
-                <button class="btns">1</button>
+             <!--   <button id="previous" class="labelBtn">Prev</button>
+                <button class="btns active">1</button>
                 <button class="btns">2</button>
                 <button class="btns">3</button>
                 <button class="btns">4</button>
                 <button class="btns">5</button>
-                <button id="next" class="labelBtn">Next</button>
+                <button id="next" class="labelBtn">Next</button> -->
 
 
 
@@ -149,6 +154,66 @@
 
 
         <script>
+            window.onload = function(){
+                var followers; let page=1; let section;
+
+                const container = document.getElementById("grid_container")
+
+                let url="https://api.github.com/users/john-smilga/followers?per_page=10";
+
+                    fetch("https://api.github.com/users/john-smilga/followers?per_page=10")
+                    .then(response => response.json())
+                    .then(data => {
+                        
+                     section=   data.map(function(person,index){
+                            
+                            const {login,avatar_url,html_url} = person;
+                            
+                            return `  <div class="profile">
+                                <img class="image" src=${avatar_url}>
+                                    <p class="name">${login}</p>
+                                    <a href=${html_url} class="profileLink" target="_blank">VIEW PROFILE</a>
+                                </div>`
+
+                        }).join("")
+
+                        container.innerHTML=section
+
+                        })
+
+                     
+                let btn_elements=""; 
+
+                const pagination = document.getElementById("pagination")
+
+                for(var i=0;i<12;i++){
+
+                    if(i==0 || i==11){
+                        if(i==0){
+                        btn_elements += `<button  id="previous" class="labelBtn">Prev</button>`}
+                        else{
+                            btn_elements += `<button  id="next" class="labelBtn">Next</button>`
+                        }
+
+                    }else{
+
+                        btn_elements += `<button class="btns">${i}</button>`
+
+                    }
+
+
+                }
+              // Create buttons and place them in the Pagination container
+                pagination.innerHTML = btn_elements;
+
+                // Add active class to first button
+               const button_1 = pagination.children[1];
+              
+               button_1.classList.add("active");
+
+
+
+            }
 
           
 
